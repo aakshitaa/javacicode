@@ -45,26 +45,22 @@ pipeline {
 //             }
 //         }
 
-        // stage("UPLOAD ARTIFACTS TO NEXSUS") {
-        //     steps {
-        //         script {
-        //             nexusArtifactUploader artifacts: [
-        //                 [
-        //                     artifactId: 'springboot',
-        //                     classifier: '',
-        //                     file: 'target/UPES.jar',
-        //                     type: 'jar'
-        //                 ]
-        //             ],
-        //             credentialsId: 'nexus',
-        //             groupId: 'com.example',
-        //             nexusUrl: '15.206.79.6:8081',
-        //             nexusVersion: 'nexus3',
-        //             protocol: 'http',
-        //             repository: 'Java-released',
-        //             version: '1.0.0'
-        //         }
-        //     }
-        // }
+        stage("UPLOAD ARTIFACTS TO NEXSUS") {
+            steps {
+                script {
+                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', 
+                    classifier: '', 
+                    file: 'target/UPES.jar', 
+                    type: 'jar']], 
+                    credentialsId: 'nexus', 
+                    groupId: 'com.example', 
+                    nexusUrl: '13.126.70.84:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'maven1', 
+                    version: '1.0.0'
+                }
+            }
+        }
     }
 }
